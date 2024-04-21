@@ -1,0 +1,457 @@
+body{
+  background-color:#ffffff;;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  text-decoration: none !important;
+
+}
+a{
+  text-decoration: none !important;
+  
+}
+
+.nav-ul li{
+  display: inline-block;
+  padding: 20px;
+}
+.nav-ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+   
+}
+
+
+/* this is checking */
+.nav-ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s ease; /* Adjust the duration and timing function as needed */
+}
+
+.nav-ul li a:hover {
+  border-bottom: 5px solid red;
+}
+
+
+
+
+
+
+.logevents img {
+  width: 80px;
+  height: 80px;
+  margin-left: 20px;
+  padding: 10px;
+  border: 5px solid red;
+  border-radius: 50%;
+  transition: all 0.5s ease; 
+}
+
+.logevents img:hover {
+  transform: scale(1.2); /* Adjust the scale on hover */
+}
+
+
+
+.Navebar{
+  height: 80px; 
+  background-color: #761b14;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+.contactusform{
+  
+  height: 80vh;
+ 
+  background-color: #8e9c96;
+}
+
+
+
+.inputBox {
+  margin-left: 30%;
+  display: block;
+  margin: 25px;
+  padding: 10px;
+  width: 400px;
+  border: 2px solid #761b14;
+  border-radius: 100px; /* Adjust the value for the desired border radius */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.appButton{
+  margin: 30px;
+  padding: 10px;
+  width: 150px;
+  border-color: skyblue;
+  background-color: #761b14;
+  border: 1px solid;
+  border-radius: 50px;
+  color: white;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.register{
+  /* background-color: rgb(43, 43, 44); */
+  /* background-color: #8e9c96; */
+  
+  padding-top: 100px;
+  margin: auto;
+}
+.register h1{
+  color: black;
+  padding-left: 27px;
+}
+
+
+/* ************homepagestyle is here************* */
+
+.homepage {
+  background-image: linear-gradient(rgba(56, 53, 52, 0.5), rgba(56, 53, 52, 0.5)), url("https://pos.closetor.com/uploads/dress/PC_00186_rb27.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  padding-top: 90px;
+  background-color: #383534;
+  background-attachment: fixed;
+}
+
+
+.Homepage p{
+  color: white;
+}
+.homehr{
+  color: #8e9c96;
+  
+}
+.check{
+  color:white;
+  font-size: 75px;
+  text-align: center;
+}
+
+
+
+.homepageText{
+  color: white;
+  /* color: aqua; */
+  text-align: center;
+  font-size: 50px;
+}
+
+
+
+
+.aboutUs{
+  width: 100%;
+  height: 100vh;
+  /* background-color: #8e9c96; */
+  display: flex;
+  justify-content: space-around;
+  
+}
+.aboutUsText{
+
+  width: 40%;
+  padding-top: 150px;
+  
+}
+
+.aboutUsText p{
+  color: #000108;
+  font-size: 18px;
+}
+
+.aboutImage{
+  padding-top: 150px;
+}
+.aboutusimage{
+  height:400px;
+  width: 700px;
+}
+
+.contactusform{
+  padding-top: 200px;
+ 
+}
+.contactusheadingone{
+  color: black;
+  margin-left: 65px;
+}
+.contactUsparagraph{
+
+  color: black;
+  margin-left: 65px;
+}
+
+
+.ContactusForm{
+  /* background-color: #8e9c96; */
+  height: 100vh;
+  display: flex;
+  padding-top: 100px;
+  flex-direction: column;
+  
+}
+#contactme{
+  width: 50%;
+  height: 60px;
+  margin-top: 10px;
+  /* padding-top: 5px; */
+  /* padding-bottom: 5px; */
+  margin-left: 70px;
+}
+
+.check{
+  margin-top: 200px;
+}
+
+.footerEvent{
+  height: 60vh;
+  background-color: #761b14;
+}
+
+
+/* ********************service style is here********************* */
+.mainourServices{
+  height: 120vh;
+  /* background-color: #8e9c96; */
+}
+
+.servicesheading{
+  padding-top: 70px;
+  padding-left: 70px;
+  color: black;
+}
+
+.whatwedo{
+  font-size: 40px;
+  padding-left: 70px;
+  color:black;
+  
+}
+
+
+.myAllCards{
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+
+
+
+.iconssoial-blue {
+  font-size: 44px !important;
+  color: #f94334;
+  transition: all 0.3s ease; /* Adjust the duration and timing function as needed */
+}
+
+.iconssoial-blue:hover {
+  font-size: 74px !important; /* Adjust the size on hover */
+  color: #761b14;
+}
+
+
+li{
+  list-style-type: none;
+}
+.socialMediaIcons{
+  display: flex;
+}
+
+/* *********************icons hover************* */
+
+.iconstarss {
+  transition: transform 0.3s, font-size 0.3s;
+  display: inline-block;
+}
+
+.iconstarss:hover {
+  transform: rotate(360deg);
+  font-size: 4em;
+}
+
+
+
+
+
+
+
+/* home page animation is here******************* */
+.check,
+.homepageText {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.5s; /* Add a delay for a staggered effect */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ***************footer css is here**************************** */
+
+.footerEvent{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  flex-wrap: wrap;
+
+}
+
+
+.birthday{
+  color: black;
+  
+  height: 100vh;
+  display: flex;
+  /* background-color: #8e9c96; */
+  justify-content: space-around;
+  padding-top: 80px;
+  /* border: 4px solid red; */
+
+}
+
+.photography{
+  color: black;
+  height: 100vh;
+  display: flex;
+  /* background-color: #8e9c96; */
+  justify-content: space-between;
+  padding-top: 80px;
+
+}
+
+.weedingsmain{
+  color: black;
+  height: 100vh;
+  display: flex;
+  /* background-color: #8e9c96; */
+  justify-content: space-between;
+  padding-top: 80px;
+
+}
+
+.noUnderline {
+  text-decoration: none !important;
+}
+
+
+
+
+/* ****************************photography**************************** */
+.photographyyy{
+  display: flex;
+  justify-content: space-between;
+ 
+  
+}
+
+.photgraphyimage{
+  width: 350px;
+  height: 350px;
+}
+.photowidth{
+  width: 400px;
+}
+
+
+
+
+/* **************birthday csss****************** */
+
+.birthday{
+  display: flex;
+  
+  
+  /* justify-content: space-between; */
+}
+.birthdayimagess{
+  width: 400px;
+  height: 300px;
+}
+
+
+
+
+
+/* *****************weedings Css******************** */
+
+.weedingsmain{
+ 
+  display: flex;
+  justify-content: space-between;
+  
+ 
+}
+
+.weedingproducts{
+  width: 400px;
+  height: 300px;
+}
+
+
+
+/* ***********icons style********** */
+
+.iconstarss {
+  color: yellow;
+  font-size: 2em;
+}
+
+
+
+
+
+/* ********chatting style******************* */
+
+
+
+.thisisthecardofbirthday{
+ 
+  text-align: center;
+
+}
