@@ -64,8 +64,8 @@ jobs:
         with:
           path: terraform/
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
         uses: terraform init
