@@ -62,18 +62,15 @@ jobs:
 
       - name: Terraform Init
         uses: hashicorp/terraform-github-actions@v3
-        working-directory: terraform/
         with:
           tf_actions_version: 1.5.0
           tf_actions_subcommand: 'init'
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan
-        working-directory: terraform/
 
       - name: Upload Terraform Plan
         uses: actions/upload-artifact@v2
-        working-directory: terraform/
         with:
           name: tfplan
           path: tfplan
@@ -90,14 +87,12 @@ jobs:
 
       - name: Download Terraform Plan
         uses: actions/download-artifact@v2
-        working-directory: terraform/
         with:
           name: tfplan
           path: .
 
       - name: Terraform Apply
         run: terraform apply tfplan
-        working-directory: terraform/
         env:
           TF_CLI_ARGS: -auto-approve
 
