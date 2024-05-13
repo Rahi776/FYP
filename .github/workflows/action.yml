@@ -47,26 +47,26 @@ jobs:
         run: npm run test
 
   terraform-plan:
-  runs-on: ubuntu-latest
-  needs: build
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Terraform Init
-      uses: hashicorp/terraform-github-actions@v3
-      with:
-        tf_actions_version: 1.1.0
-        tf_actions_subcommand: 'init'
+      - name: Terraform Init
+        uses: hashicorp/terraform-github-actions@v3
+        with:
+          tf_actions_version: 1.1.0
+          tf_actions_subcommand: 'init'
 
-    - name: Terraform Plan
-      run: terraform plan -out=tfplan
-    
-    - name: Upload Terraform Plan
-      uses: actions/upload-artifact@v2
-      with:
-        name: tfplan
-        path: tfplan
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
+      
+      - name: Upload Terraform Plan
+        uses: actions/upload-artifact@v2
+        with:
+          name: tfplan
+          path: tfplan
 
   terraform-apply:
     if: github.event_name == 'workflow_run' && github.event.workflow_run.event == 'terraform_plan'
