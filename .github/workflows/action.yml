@@ -105,7 +105,7 @@ jobs:
           path: terraform/
 
       - name: Terraform Apply
-        run: terraform apply tfplan
+        run: terraform -chdir=terraform apply tfplan
         # env:
         #   TF_CLI_ARGS: -auto-approve
 
