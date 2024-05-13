@@ -68,10 +68,10 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init terraform/
 
       - name: Terraform Plan
-        run: terraform plan -out=tfplan
+        run: terraform plan -out=tfplan terraform/
 
       - name: Upload Terraform Plan
         uses: actions/upload-artifact@v2
