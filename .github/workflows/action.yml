@@ -86,13 +86,13 @@ jobs:
           path: tfplan
 
   terraform-apply:
-    if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'terraform_apply'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     needs: terraform-plan
     environment: staging
     defaults:
       run:
-        shell: bash        
+        shell: bash       
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
