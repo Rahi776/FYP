@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: fyp
   labels:
     app: fyp
-  name: fyp
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,21 @@ spec:
         app: fyp
     spec:
       containers:
-      - image: rahi776/fyp:latest
-        name: fyp
+      - name: fyp
+        image: rahi776/fyp:latest
+        ports:
+        - containerPort: 80
         resources: {}
-status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fyp-service
+spec:
+  selector:
+    app: fyp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
