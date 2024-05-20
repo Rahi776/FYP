@@ -82,7 +82,7 @@ jobs:
         run: terraform -chdir=terraform plan -var-file=env/stg/stg.tfvars
 
       - name: Terraform Apply
-        run: terraform -chdir=terraform apply -auto-approve -input=false        
+        run: terraform -chdir=terraform apply -var-file=env/stg/stg.tfvars -auto-approve
 
   deploy:
     runs-on: ubuntu-latest
