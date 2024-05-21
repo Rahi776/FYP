@@ -46,7 +46,7 @@ pipeline {
         stage('Terraform') {
             steps {
                 sh '''
-                    terraform -chdir=terraform init -backend-config=env/prod/backend-stg.tfvars
+                    terraform -chdir=terraform init -backend-config=env/prod/backend-prod.tfvars
                     terraform -chdir=terraform plan -var-file=env/prod/prod.tfvars
                     terraform -chdir=terraform apply -var-file=env/prod/prod.tfvars -auto-approve
                 '''
