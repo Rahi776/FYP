@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        ENVIRONMENT = 'staging'
         DOCKER_USERNAME = credentials('docker-username') 
         DOCKER_PASSWORD = credentials('docker-password')
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
@@ -10,10 +9,14 @@ pipeline {
         AWS_DEFAULT_REGION = 'us-east-1'
     }
 
+    triggers {
+        github(push: 'main')
+    }
+
     stages {
         stage('Checkout code') {
             steps {
-                git branch: 'staging', url: 'git@github.com:Rahi776/FYP.git'
+                git branch: 'main', url: 'git@github.com:Rahi776/FYP.git'
             }
         }
 
@@ -28,14 +31,12 @@ pipeline {
         stage('Package') {
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'staging') {
-                        withCredentials([usernamePassword(credentialsId: 'docker-credentials-id', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                            sh '''
-                                echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-                                docker build -t rahi776/fyp:latest .
-                                docker push rahi776/fyp:latest
-                            '''
-                        }
+                    withCredentials([usernamePassword(credentialsId: 'docker-credentials-id', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                        sh '''
+                            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+                            docker build -t rahi776/fyp:latest .
+                            docker push rahi776/fyp:latest
+                        '''
                     }
                 }
             }
@@ -44,31 +45,23 @@ pipeline {
 
         stage('Terraform') {
             steps {
-                script {
-                    sh '''
-                        terraform -chdir=terraform init -backend-config=env/stg/backend-stg.tfvars
-                        terraform -chdir=terraform plan -var-file=env/stg/stg.tfvars
-                        terraform -chdir=terraform apply -var-file=env/stg/stg.tfvars -auto-approve
-                    '''
-                }
+                sh '''
+                    terraform -chdir=terraform init -backend-config=env/prod/backend-stg.tfvars
+                    terraform -chdir=terraform plan -var-file=env/prod/prod.tfvars
+                    terraform -chdir=terraform apply -var-file=env/prod/prod.tfvars -auto-approve
+                '''
             }
         }
 
         stage('Deploy') {
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'staging') {
-                        sh '''
-                            aws eks update-kubeconfig --name stg-cluster --region us-east-1
-                            kubectl apply -f k8s_manifest/deploy.yaml
-                        '''
-                    } else if (env.BRANCH_NAME == 'main') 
-                        sh '''
-                            aws eks update-kubeconfig --name prod-cluster --region us-east-1
-                            kubectl apply -f k8s_manifest/deploy.yaml
-                        '''
-                    }
+                    sh '''
+                        aws eks update-kubeconfig --name prod-cluster --region us-east-1
+                        kubectl apply -f k8s_manifest/deploy.yaml
+                    '''
                 }
             }
         }
     }
+}
