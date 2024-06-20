@@ -2,7 +2,10 @@ name: Delete Workflow
 
 on:
   workflow_dispatch:
-    
+    inputs:
+      action:
+        description: delete
+
 env:
   ENVIRONMENT: staging
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
