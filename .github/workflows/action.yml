@@ -16,6 +16,7 @@ env:
 jobs:
   build_and_package:
     runs-on: ubuntu-latest
+    environment: staging
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -98,3 +99,4 @@ jobs:
           sudo apt-get update && sudo apt-get install awscli -y
           aws eks update-kubeconfig --name ${{ env.TF_ENV }}-cluster --region us-east-1
           kubectl apply -f k8s_manifest/deploy.yaml
+          kubectl rollout restart deploy/fyp
