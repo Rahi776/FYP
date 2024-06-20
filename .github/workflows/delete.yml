@@ -25,6 +25,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set env variable
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/staging" ]; then
+              echo "TF_ENV=stg" >> $GITHUB_ENV
+          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
+              echo "TF_ENV=prod" >> $GITHUB_ENV
+          fi
+      
+      - name: Delete Load balancer
+        run: |
+          sudo apt-get update && sudo apt-get install awscli -y
+          aws eks update-kubeconfig --name ${{ env.TF_ENV }}-cluster --region us-east-1
+          kubectl delete -f k8s_manifest/deploy.yaml
+          sleep 30
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
