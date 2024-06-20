@@ -1,10 +1,8 @@
-name: Staging Pipeline
+name: Delete Workflow
 
 on:
-  push:
-    branches:
-      - staging
-
+  workflow_dispatch:
+    
 env:
   ENVIRONMENT: staging
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
