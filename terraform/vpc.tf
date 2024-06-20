@@ -20,11 +20,11 @@ module "vpc" {
   create_egress_only_igw = true
 
   public_subnet_ipv6_prefixes                    = [0, 1, 2]
-  public_subnet_assign_ipv6_address_on_creation  = true
+  public_subnet_assign_ipv6_address_on_creation  = false
   private_subnet_ipv6_prefixes                   = [3, 4, 5]
-  private_subnet_assign_ipv6_address_on_creation = true
+  private_subnet_assign_ipv6_address_on_creation = false
   intra_subnet_ipv6_prefixes                     = [6, 7, 8]
-  intra_subnet_assign_ipv6_address_on_creation   = true
+  intra_subnet_assign_ipv6_address_on_creation   = false
 
   public_subnet_tags = {
     "kubernetes.io/role/elb" = 1
