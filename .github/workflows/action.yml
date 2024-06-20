@@ -32,6 +32,9 @@ jobs:
       - name: Build
         run: npm run build || true
 
+      - name: Save build artifacts
+        run: mkdir artifacts && mv public/* artifacts/
+
       - name: Login to Docker Hub
         run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
@@ -39,10 +42,6 @@ jobs:
         run: |
           docker build -t rahi776/fyp:latest .
           docker push rahi776/fyp:latest        
-
-      - name: Save build artifacts
-        run: mkdir artifacts && mv public/* artifacts/
-
 
   test:
     runs-on: ubuntu-latest
