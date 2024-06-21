@@ -36,7 +36,7 @@ function Weedings() {
       </div>
      <h2>weeding cards</h2>
      <p>contact:098374756</p>
-      <p>price:9999</p>
+      <p>price:2000</p>
      
     </div>
     <div className='thisisthecardofbirthday'>
