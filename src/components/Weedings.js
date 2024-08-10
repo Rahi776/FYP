@@ -51,7 +51,7 @@ function Weedings() {
       
       
       </div>
-     <h2>Mirrage Hall</h2>
+     <h2>Mirrage Halls</h2>
      <p>contact:098374756</p>
       <p>price:50000</p>
     </div>
