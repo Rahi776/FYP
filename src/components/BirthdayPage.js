@@ -15,9 +15,9 @@ function BirthdayPage() {
       <span > <StarOutlineIcon /> </span>
       <span > <StarOutlineIcon /> </span>
       </div>
-      <h1>services we offer</h1>
+      <h1>services we offering</h1>
       <p>contact:1111111</p>
-      <p>price:3440</p>
+      <p>price:34</p>
      </div>
      <div  className="thisisthecardofbirthday">
       <img className="birthdayimagess" src="https://plus.unsplash.com/premium_photo-1692011483283-dcc0de7f2f82?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmlydGhkYXklMjBkZWNvcmF0aW9uc3xlbnwwfHwwfHx8MA%3D%3D" />
