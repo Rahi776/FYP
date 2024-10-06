@@ -15,7 +15,7 @@ function BirthdayPage() {
       <span > <StarOutlineIcon /> </span>
       <span > <StarOutlineIcon /> </span>
       </div>
-      <h1>services we were offering</h1>
+      <h1>services we offering</h1>
       <p>contact:1111111</p>
       <p>price:34</p>
      </div>
