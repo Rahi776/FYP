@@ -19,7 +19,7 @@ function Weedings() {
       
      <h2>Wedding Products</h2>
      <p>contact:0983747560</p>
-      <p>price:12000</p>
+      <p>price:14000</p>
      
     </div>
     <div className='thisisthecardofbirthday'>

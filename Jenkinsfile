@@ -6,7 +6,7 @@ pipeline {
         DOCKER_PASSWORD = credentials('docker-password')
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-        AWS_DEFAULT_REGION = 'ap-south-1'
+        AWS_DEFAULT_REGION = 'us-east-1'
     }
 
     // triggers {
@@ -60,7 +60,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        aws eks update-kubeconfig --name prd-cluster --region ap-south-1
+                        aws eks update-kubeconfig --name prd-cluster --region us-east-1
                         kubectl apply -f k8s_manifest/deploy.yaml
                         kubectl rollout restart deploy/fyp
                     '''
