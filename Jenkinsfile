@@ -25,8 +25,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'npm install'
-                sh 'npm run build || true'
+                sh 'unset CI && npm install'
+                sh 'unset CI && npm run build || true'
                 sh 'mkdir -p artifacts && mv public/* artifacts/'
             }
         }
