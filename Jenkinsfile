@@ -60,7 +60,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        aws eks update-kubeconfig --name prd-cluster --region us-east-1
+                        aws eks update-kubeconfig --name production-cluster --region us-east-1
                         kubectl apply -f k8s_manifest/deploy.yaml
                         kubectl rollout restart deploy/fyp
                     '''
